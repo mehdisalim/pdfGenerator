@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{margin-top:20px;}
+        .col-inside-lg {
+            padding: 20px;
+        }
+        .b-profile {
+            padding-bottom: 20px;
+            color: #ffffff;
+            margin-bottom:20px;
+        }
+        .b-profile-name {
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+        }
+        .b-profile-avatar {
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+        .b-profile-profession {
+            font-size: 16px;
+            line-height: 18px;
+            text-align: center;
+            margin: 6px 0 12px;
+        }
+        .b-profile-share {
+            display: block;
+            text-align: center;
+            padding: 12px 0 24px;
+            margin: 0;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        .b-profile-share li {
+            display: inline-block;
+            margin: 0 8px;
+            overflow: hidden;
+        }
+        .b-profile-share li a, .b-profile-share li a:hover {
+            font-size: 24px;
+            color: #fff;
+        }
+        .b-profile .btn-follow-this {
+            font-size: 16px;
+            line-height: 34px;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            padding: 0 40px;
+            text-transform: uppercase;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .m-b-md {
+            margin-bottom: 20px;
+        }
+        .text-c {
+            text-align: center;
+        }
+        .decor-success {
+            background-color: #46be8a;
+        }
+        .decor-warning {
+            background: #f2a654;
+        }
+        .decor-default {
+            background: #7266ba;
+        }
+        .decor-info {
+            background: #39bee8;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="container bootstrap snippets bootdeys">
+    <div th:each="file : ${files}" class="row">
+        <div class="col-sm-12 col-md-6  ">
+            <div class="col-inside-lg decor-info b-profile text-c" data-height-col="" style="height: 440px;">
+                <div class="b-profile-name">
+                    <h3 th:text="${file.getFileName()}">untitled</h3>
+                </div>
+                <div class="b-profile-profession">
+                    <h3 th:text="${file.getFileUrl()}">untitled</h3>
+                </div>
+                <div class="b-profile-about">
+                    <p th:text="${file.getFileDescription()}"></p>
+                </div>
+                <ul class="b-profile-share">
+                    <li><a class="f" href="#">f</a></li>
+                    <li><a class="t" href="#">t</a></li>
+                    <li><a class="l" href="#">l</a></li>
+                    <li><a class="x" href="#">x</a></li>
+                </ul>
+                <span class="btn-follow-this m-b-md">FOLLOW THIS</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
